@@ -21,13 +21,11 @@ public class Connection_Manager : MonoBehaviour
         Debug.Log("connecting");
         Application.ExternalCall("Logon");
     }
-
     public void OnRoomJoined(int playerId)
     {
-        Debug.Log("room joined, my id is: " + player_id);
         player_id = playerId;
+        Debug.Log("room joined, my id is: " + player_id);
     }
-
     public void SpawnPlayer(int id)
     {
         Debug.Log("New Player to spawn..." + id);

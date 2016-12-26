@@ -55,6 +55,7 @@ io.on('connection', function(socket){
   //Assign an id
   playerId += 1;
   socket.userId = playerId;
+  console.log('new player id: ' + socket.userId);
   players[socket.userId] = socket;
   //Give the player their id
   socket.emit('connection_successful', socket.userId);
@@ -62,7 +63,7 @@ io.on('connection', function(socket){
   io.emit('new_player', socket.userId);
   //Remove player from hashmap on disconnect
   socket.on('disconnect', function(){
-    console.log('user disconnected');
+    console.log('user disconnected ' + new Date());
     players[socket.userId] = null;
   });
 });
